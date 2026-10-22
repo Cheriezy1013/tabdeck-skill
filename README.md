@@ -1,6 +1,6 @@
 # TabDeck skill
 
-A Claude skill that builds **your own** TabDeck: a Chrome new-tab page made for you.
+A Claude (and Codex) skill that builds **your own** TabDeck: a Chrome new-tab page made for you.
 
 TabDeck turns your Chrome new-tab page into something useful: your open tabs as cards you can close in one click, today's news from sources you pick, and a 3-minute lesson in whatever you're learning. This skill lets Claude build **your own** TabDeck: it asks you a few questions, writes your lessons, and gives you a ready-to-install zip.
 
@@ -19,6 +19,18 @@ TabDeck turns your Chrome new-tab page into something useful: your open tabs as 
 4. Turn the TabDeck skill on in your Skills list.
 
 On a Team or Enterprise plan, your admin may need to allow skills first.
+
+### Using Codex instead of Claude
+
+The skill uses the shared `SKILL.md` format, so it also works in OpenAI Codex (CLI, IDE extension or app). You need `git` and Python 3 on your computer.
+
+```bash
+git clone https://github.com/Cheriezy1013/tabdeck-skill.git
+mkdir -p ~/.agents/skills
+cp -R tabdeck-skill/tabdeck ~/.agents/skills/
+```
+
+Restart Codex, then say **"Make me a TabDeck"**. Codex asks the same four questions in chat and builds the zip in your current folder. The steps below are the same from here on; wherever it says Claude, read Codex.
 
 ## 2. Ask Claude to make your TabDeck
 

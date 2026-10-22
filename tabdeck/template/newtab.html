@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New tab · TabDeck</title>
+{{FONT_LINK}}
+<link rel="stylesheet" href="newtab.css">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="learn" id="learn" aria-label="Today's 3-minute learn"></section>
+  <header class="head">
+    <div>
+      <div class="greet" id="greet" hidden></div>
+      <h1 id="title">Your tabs</h1>
+      <div class="summary" id="summary"></div>
+    </div>
+    <div class="tools">
+      <label for="fxSel">Close effect</label>
+      <select id="fxSel">
+        <option value="plane">Paper plane</option>
+        <option value="sweep">Sweep away</option>
+        <option value="crumple">Crumple</option>
+        <option value="fade">Quiet fade</option>
+      </select>
+      <label for="sndSel">Sound</label>
+      <select id="sndSel">
+        <option value="match">Matches the effect</option>
+        <option value="pop">Bubble pop</option>
+        <option value="kaching">Ka-ching!</option>
+        <option value="arcade">Arcade</option>
+        <option value="off">Off</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="quick">
+    <button class="btn danger" id="closeDups" type="button">Close duplicates</button>
+    <button class="btn" id="closeStale" type="button">Close tabs untouched 2+ days</button>
+    <button class="btn gift" id="wrapBtn" type="button">🎁 This week's Tab Wrapped</button>
+    <input id="search" type="search" placeholder="Find a tab…" aria-label="Find a tab">
+  </div>
+
+  <section class="saved" id="saved" hidden aria-label="Saved for later"></section>
+  <section class="grid" id="grid" aria-live="polite"></section>
+  <p class="foot">TabDeck only reads the tabs that are open right now, keeps everything on this computer, and closes a tab only when you press a button. Pinned tabs and tabs playing sound are never closed by the bulk buttons.</p>
+</main>
+<div class="toast" id="toast" hidden></div>
+<div id="wrapRoot"></div>
+<div id="lessonRoot"></div>
+<script src="sound.js"></script>
+<script src="config.js"></script>
+<script src="newtab.js"></script>
+</body>
+</html>

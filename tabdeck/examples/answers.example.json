@@ -1,0 +1,10 @@
+{
+  "name": "Cherie",
+  "greeting": "Hi Cherie, here are your tabs",
+  "theme": "korean-pastel",
+  "news": ["techcrunch-ai", "mittr-ai"],
+  "newsLabel": "🤖 AI news today",
+  "learnIcon": "🗣️",
+  "effect": "plane",
+  "sound": "match"
+}

@@ -1,0 +1,220 @@
+{
+ "topics": {
+  "korean": {
+   "label": "Korean 한국어",
+   "voice": "ko-KR",
+   "items": [
+    {
+     "title": "Hello, thank you, yes and no",
+     "phrases": [
+      [
+       "안녕하세요",
+       "annyeonghaseyo",
+       "Hello"
+      ],
+      [
+       "감사합니다",
+       "gamsahamnida",
+       "Thank you"
+      ],
+      [
+       "네 / 아니요",
+       "ne / aniyo",
+       "Yes / No"
+      ]
+     ],
+     "tryit": "Greet the next person you meet with 안녕하세요 in your head, then out loud.",
+     "quiz": {
+      "q": "How do you say “thank you”?",
+      "opts": [
+       "감사합니다",
+       "안녕하세요",
+       "아니요"
+      ],
+      "a": 0
+     }
+    },
+    {
+     "title": "Shopping: how much is this?",
+     "phrases": [
+      [
+       "이거 얼마예요?",
+       "igeo eolmayeyo?",
+       "How much is this?"
+      ],
+      [
+       "이거 주세요",
+       "igeo juseyo",
+       "This one, please"
+      ],
+      [
+       "너무 비싸요",
+       "neomu bissayo",
+       "It's too expensive"
+      ]
+     ],
+     "tryit": "Point at something on your desk and ask 이거 얼마예요?",
+     "quiz": {
+      "q": "What does 주세요 (juseyo) add to a sentence?",
+      "opts": [
+       "Please give me",
+       "Too expensive",
+       "Where is"
+      ],
+      "a": 0
+     }
+    },
+    {
+     "title": "Finding your way",
+     "phrases": [
+      [
+       "화장실 어디예요?",
+       "hwajangsil eodiyeyo?",
+       "Where is the toilet?"
+      ],
+      [
+       "여기",
+       "yeogi",
+       "Here"
+      ],
+      [
+       "저기",
+       "jeogi",
+       "Over there"
+      ]
+     ],
+     "tryit": "Swap 화장실 for 지하철역 (jihacheollyeok, subway station) and ask again.",
+     "quiz": {
+      "q": "Which word means “over there”?",
+      "opts": [
+       "여기",
+       "저기",
+       "어디"
+      ],
+      "a": 1
+     }
+    },
+    {
+     "title": "At the table",
+     "phrases": [
+      [
+       "잘 먹겠습니다",
+       "jal meokgetseumnida",
+       "Said before eating"
+      ],
+      [
+       "맛있어요",
+       "masisseoyo",
+       "It's delicious"
+      ],
+      [
+       "물 주세요",
+       "mul juseyo",
+       "Water, please"
+      ]
+     ],
+     "tryit": "Say 잘 먹겠습니다 before your next meal.",
+     "quiz": {
+      "q": "What do you say before you start eating?",
+      "opts": [
+       "맛있어요",
+       "잘 먹겠습니다",
+       "물 주세요"
+      ],
+      "a": 1
+     }
+    },
+    {
+     "title": "Sorry, it's okay, one moment",
+     "phrases": [
+      [
+       "죄송합니다",
+       "joesonghamnida",
+       "I'm sorry (polite)"
+      ],
+      [
+       "괜찮아요",
+       "gwaenchanayo",
+       "It's okay"
+      ],
+      [
+       "잠깐만요",
+       "jamkkanmanyo",
+       "Just a moment / excuse me"
+      ]
+     ],
+     "tryit": "Next time someone apologises to you, answer 괜찮아요 in your head.",
+     "quiz": {
+      "q": "How do you say “it's okay”?",
+      "opts": [
+       "괜찮아요",
+       "죄송합니다",
+       "잠깐만요"
+      ],
+      "a": 0
+     }
+    },
+    {
+     "title": "Two ways to count",
+     "phrases": [
+      [
+       "하나, 둘, 셋",
+       "hana, dul, set",
+       "1, 2, 3 (native: counting things, age)"
+      ],
+      [
+       "일, 이, 삼",
+       "il, i, sam",
+       "1, 2, 3 (Sino-Korean: money, dates, phone numbers)"
+      ],
+      [
+       "얼마예요?",
+       "eolmayeyo?",
+       "How much? (answers use Sino-Korean)"
+      ]
+     ],
+     "tryit": "Count three things near you with 하나, 둘, 셋.",
+     "quiz": {
+      "q": "Which numbers do you use for prices?",
+      "opts": [
+       "하나, 둘, 셋",
+       "일, 이, 삼"
+      ],
+      "a": 1
+     }
+    },
+    {
+     "title": "When you don't understand",
+     "phrases": [
+      [
+       "한국어 조금 해요",
+       "hangugeo jogeum haeyo",
+       "I speak a little Korean"
+      ],
+      [
+       "다시 말해 주세요",
+       "dasi malhae juseyo",
+       "Please say it again"
+      ],
+      [
+       "천천히",
+       "cheoncheonhi",
+       "Slowly"
+      ]
+     ],
+     "tryit": "Practise: 천천히 다시 말해 주세요 (please say it again, slowly).",
+     "quiz": {
+      "q": "What does 천천히 mean?",
+      "opts": [
+       "Again",
+       "Slowly",
+       "A little"
+      ],
+      "a": 1
+     }
+    }
+   ],
+   "short": "Korean"
+  }
+ }
+}

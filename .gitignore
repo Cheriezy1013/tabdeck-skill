@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+TabDeck-*/
+TabDeck-*.zip
+.DS_Store

@@ -12,7 +12,7 @@ TabDeck turns your Chrome new-tab page into something useful: your open tabs as 
 
 ## 1. Add the skill to Claude (once)
 
-1. Download **`tabdeck.zip`** from the [latest release](../../releases/latest). Don't unzip it.
+1. Download **`tabdeck.zip`** ([direct download](https://github.com/Cheriezy1013/tabdeck-skill/raw/main/tabdeck.zip), or click `tabdeck.zip` in the file list above and then the download button). Don't unzip it.
    (The green "Code → Download ZIP" button gives a different file that Claude won't accept.)
 2. In Claude, go to **Settings → Capabilities**. Make sure **Code execution** is on.
 3. Under **Skills**, click **Upload skill** and choose `tabdeck.zip`.

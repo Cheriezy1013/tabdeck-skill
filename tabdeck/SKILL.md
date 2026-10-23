@@ -12,7 +12,7 @@ TabDeck replaces Chrome's new-tab page. Every new tab shows:
 - **A top row made for this person**: today's news from the sources they like, a 3-minute daily lesson in what they are learning (with read-aloud, a quick quiz and a streak), and something they saved earlier.
 - **🎁 Tab Wrapped**: their week in tabs.
 
-Everything stays on their computer. It never reads browsing history. Works in desktop Chrome and Edge.
+Everything stays on their computer. It never reads browsing history. Works in desktop browsers built on Chrome: Chrome, Edge, Brave, Arc, Opera, Vivaldi. It does not work in Firefox, Safari or on phones; if the person only uses those, say so before asking the questions, and suggest Chrome or Edge just for TabDeck.
 
 Your job: ask a few questions, write their lessons, run the build script, and hand over the zip with clear install steps. The person should have TabDeck running within about 5 minutes.
 
@@ -76,7 +76,7 @@ Send the zip as a file. Then, in your reply, keep it short and concrete:
 1. What you made for them, in one line (their style, their lesson topic, their news).
 2. **Install, about 2 minutes** (the same steps are in `INSTALL.txt` inside the zip):
    1. Unzip it and keep the folder somewhere it will stay, e.g. Documents. Chrome loads it from there, so it must not be moved or deleted.
-   2. Open `chrome://extensions` (Edge: `edge://extensions`).
+   2. Open the browser's extensions page: `chrome://extensions` (Edge: `edge://extensions`, Brave: `brave://extensions`).
    3. Turn on **Developer mode** (top right).
    4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
    5. Open a new tab. If Chrome asks whether to keep the new-tab page change, choose **Keep it**.

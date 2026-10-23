@@ -248,10 +248,10 @@ Your look: {THEMES[base]['label']}
 Your daily lesson: {', '.join(t['label'] for t in topics.values())} ({len(first_topic['items'])} lessons, one a day)
 Your news: {', '.join(v['label'] for v in news.values())}
 
-Install (2 minutes, Chrome or Edge)
+Install (2 minutes, Chrome, Edge, Brave, Arc, Opera or Vivaldi; not Firefox or Safari)
 1. Unzip this folder and keep it somewhere it will stay, e.g. Documents/{out_dir.name}.
    Chrome loads it from there, so don't delete or move it later.
-2. Open chrome://extensions   (Edge: edge://extensions)
+2. Open chrome://extensions   (Edge: edge://extensions, Brave: brave://extensions)
 3. Turn on "Developer mode" (top right).
 4. Click "Load unpacked" and choose this folder (the one with manifest.json in it).
 5. Open a new tab. If Chrome asks whether to keep the new-tab page change, choose "Keep it".

@@ -7,8 +7,21 @@ TabDeck turns your Chrome new-tab page into something useful: your open tabs as 
 ## What you need
 
 - A Claude plan that supports skills (Pro, Max, Team or Enterprise), with **code execution** turned on
-- Desktop Chrome or Edge
+- A desktop browser built on Chrome: Chrome, Edge, Brave, Arc, Opera or Vivaldi (see below)
 - About 10 minutes
+
+## Which browsers work
+
+TabDeck runs in desktop browsers built on Chrome (Chromium). It does not run in Firefox, Safari or on phones.
+
+| Browser | Works? | Extensions page |
+|---|---|---|
+| Google Chrome | ✅ Yes | `chrome://extensions` |
+| Microsoft Edge | ✅ Yes | `edge://extensions` |
+| Brave, Arc, Opera, Vivaldi | ✅ Should work (built on Chrome, not tested one by one) | `brave://extensions`, `opera://extensions`, `vivaldi://extensions`; Arc: Extensions in its menu |
+| Firefox | ❌ No | |
+| Safari | ❌ No | |
+| Phone or tablet (any browser) | ❌ No: mobile browsers don't let extensions replace the new-tab page | |
 
 ## 1. Add the skill to Claude (once)
 
@@ -45,10 +58,10 @@ Start a new chat and say something like **"Make me a TabDeck"**. Claude asks fou
 
 Claude then writes a week of lessons at your level and sends you `TabDeck-<YourName>.zip`.
 
-## 3. Install your TabDeck in Chrome (2 minutes)
+## 3. Install your TabDeck in your browser (2 minutes)
 
 1. Unzip it and keep the folder somewhere it will stay, e.g. **Documents**. Chrome loads it from there, so don't move or delete it.
-2. Open `chrome://extensions` (Edge: `edge://extensions`).
+2. Open your browser's extensions page: `chrome://extensions` in Chrome, `edge://extensions` in Edge (others: see the table above).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
 5. Open a new tab. If Chrome asks whether to keep the new-tab page change, choose **Keep it**.
@@ -76,6 +89,7 @@ Everything stays on your computer. TabDeck reads only the tabs that are open rig
 | "Upload skill" fails | Upload the zip as downloaded, without unzipping or renaming it. Check that code execution is on. |
 | Claude doesn't use the skill | Make sure it's turned on in Settings → Capabilities → Skills, then start a new chat and say "Make me a TabDeck". |
 | No "Load unpacked" button | Turn on Developer mode (top right of the extensions page). |
+| I use Firefox or Safari | TabDeck doesn't run there. Use Chrome or Edge for it, even if you keep your usual browser for other things. |
 | A work laptop blocks Load unpacked | That's your company's policy. Ask IT, or use a personal computer. |
 | The news card says it couldn't load | Check your internet connection, or ask Claude to switch to another source. Lessons work offline. |
 | New tab still shows Google | Open `chrome://extensions` and check TabDeck is switched on; when Chrome asks about the new-tab page, choose **Keep it**. |

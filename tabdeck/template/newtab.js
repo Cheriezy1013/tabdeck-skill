@@ -204,6 +204,7 @@ function streakNow() { const y = new Date(Date.now() - DAY); return (learn.lastD
 const NEWS_TTL = 2 * 36e5;
 const strip = h => { const d = new DOMParser().parseFromString(h || "", "text/html"); return (d.body.textContent || "").replace(/\s+/g, " ").trim(); };
 async function loadNews(force) {
+  if (CFG.tabsOnly) return;
   const src = TD_NEWS[learn.news];
   if (!force && newsCache && newsCache.src === learn.news && Date.now() - newsCache.at < NEWS_TTL) return;
   newsState = "loading"; renderLearn();
@@ -235,6 +236,7 @@ function newsHtml() {
     ${newsState === "error" ? `<span class="small">Showing the last news we loaded; refreshing failed.</span>` : ""}`;
 }
 function renderLearn() {
+  if (CFG.tabsOnly) { $("learn").hidden = true; return; }  // tabs-only build: just the tab cards
   const { pack, i, item } = todays(), done = learn.lastDone === dayKey(), st = streakNow();
   const sv = [...saved].filter(x => x.type !== "remind").sort((a, b) => a.at - b.at)[0];
   const svDays = sv ? Math.max(0, Math.round((Date.now() - sv.at) / DAY)) : 0;
@@ -371,6 +373,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) refr
   const me = await chrome.tabs.getCurrent(); selfId = me ? me.id : null;
   await loadStore();
   if (CFG.greeting) { $("greet").textContent = CFG.greeting; $("greet").hidden = false; }
+  if (CFG.tabsOnly) $("wrapBtn").hidden = true;
   $("fxSel").value = settings.effect; $("sndSel").value = settings.sound;
   await refresh();
   loadNews(false);

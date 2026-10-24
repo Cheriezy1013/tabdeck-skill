@@ -192,16 +192,19 @@ def js_const(name, value):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--answers", required=True)
-    ap.add_argument("--lessons", required=True)
+    ap.add_argument("--lessons", help="not needed when answers.json says \"mode\": \"tabs-only\"")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
     ans = json.loads(Path(args.answers).read_text(encoding="utf-8"))
-    lessons = json.loads(Path(args.lessons).read_text(encoding="utf-8"))
+    tabs_only = ans.get("mode") == "tabs-only"  # just the tab cards: no news, no lessons, no Wrapped
+    if not tabs_only and not args.lessons:
+        fail("--lessons is needed, unless answers.json has \"mode\": \"tabs-only\"")
+    lessons = json.loads(Path(args.lessons).read_text(encoding="utf-8")) if args.lessons else None
 
     name = str(ans.get("name") or "").strip()[:30]
     css, font_link, base = theme_css(ans.get("theme", "korean-pastel"))
-    news = news_sources(ans.get("news"))
-    topics = check_lessons(lessons)
+    news = {} if tabs_only else news_sources(ans.get("news"))
+    topics = {} if tabs_only else check_lessons(lessons)
     effect = ans.get("effect", "plane")
     sound = ans.get("sound", "match")
     if effect not in EFFECTS:
@@ -212,11 +215,12 @@ def main():
         "greeting": str(ans.get("greeting") or (f"Hi {name}, here are your tabs" if name else "Your tabs"))[:60],
         "newsLabel": str(ans.get("newsLabel") or "📰 News today")[:40],
         "learnIcon": str(ans.get("learnIcon") or "🗣️")[:4],
-        "effect": effect, "sound": sound,
+        "effect": effect, "sound": sound, "tabsOnly": tabs_only,
     }
 
     slug = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-") or "personal"
-    out_dir = Path(args.out) / f"TabDeck-{slug}"
+    folder = re.sub(r"[^A-Za-z0-9-]+", "-", str(ans.get("folder") or "")).strip("-")
+    out_dir = Path(args.out) / (folder or f"TabDeck-{slug}")
     if out_dir.exists():
         shutil.rmtree(out_dir)
     shutil.copytree(TEMPLATE, out_dir)
@@ -232,7 +236,7 @@ def main():
         "manifest_version": 3,
         "name": "TabDeck" + (f" for {name}" if name else ""),
         "version": "2.0.0",
-        "description": "Every new tab shows your open tabs as cards grouped by website, plus your daily news and a 3-minute lesson.",
+        "description": "Every new tab shows your open tabs as cards grouped by website" + ("." if tabs_only else ", plus your daily news and a 3-minute lesson."),
         "chrome_url_overrides": {"newtab": "newtab.html"},
         "permissions": ["tabs", "storage", "alarms", "notifications"],
         "host_permissions": origins,
@@ -240,14 +244,17 @@ def main():
         "icons": {"16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    first_topic = next(iter(topics.values()))
+    first_topic = next(iter(topics.values()), {"items": []})
+    extras = ("Just the tabs: no news, no lessons. One job, done well.\n" if tabs_only else
+              f"Your daily lesson: {', '.join(t['label'] for t in topics.values())} ({len(first_topic['items'])} lessons, one a day)\n"
+              f"Your news: {', '.join(v['label'] for v in news.values())}\n")
+    top_row = "" if tabs_only else ('- Top row: today\'s news, today\'s 3-minute lesson (tap "Learn now"), and something you saved earlier.\n'
+                                   "- 🎁 Tab Wrapped shows your week. ")
     install = f"""TabDeck for {name or 'you'}
 {'=' * (11 + len(name or 'you'))}
 
 Your look: {THEMES[base]['label']}
-Your daily lesson: {', '.join(t['label'] for t in topics.values())} ({len(first_topic['items'])} lessons, one a day)
-Your news: {', '.join(v['label'] for v in news.values())}
-
+{extras}
 Install (2 minutes, Chrome, Edge, Brave, Arc, Opera or Vivaldi; not Firefox or Safari)
 1. Unzip this folder and keep it somewhere it will stay, e.g. Documents/{out_dir.name}.
    Chrome loads it from there, so don't delete or move it later.
@@ -259,8 +266,7 @@ Install (2 minutes, Chrome, Edge, Brave, Arc, Opera or Vivaldi; not Firefox or S
 Using it
 - Every new tab shows your open tabs as cards, grouped by website. ✕ closes one, "Close all" closes a card.
 - 🔖 saves a page for later; 📦 bundles a card; ⏰ reminds you later with a notification.
-- Top row: today's news, today's 3-minute lesson (tap "Learn now"), and something you saved earlier.
-- 🎁 Tab Wrapped shows your week. Pick a close effect and sound at the top right.
+{top_row}- Pick a close effect and sound at the top right.
 - Everything stays on this computer. TabDeck never reads your browsing history.
 
 Change something later: ask Claude to run the TabDeck skill again, then on chrome://extensions
@@ -274,8 +280,9 @@ click "Remove" on the old TabDeck and "Load unpacked" for the new folder.
                 z.write(f, Path(out_dir.name) / f.relative_to(out_dir))
     lesson_count = sum(len(t["items"]) for t in topics.values())
     print(f"Built {zpath}\n  look: {base}  font: {font_link.split('family=')[1].split(':')[0].replace('+', ' ')}"
-          f"\n  topics: {', '.join(topics)} ({lesson_count} lessons)\n  news: {', '.join(v['label'] for v in news.values())}"
-          f"\n  greeting: {cfg['greeting']}\n  close effect: {effect}, sound: {sound}")
+          + ("\n  mode: tabs only" if tabs_only else
+             f"\n  topics: {', '.join(topics)} ({lesson_count} lessons)\n  news: {', '.join(v['label'] for v in news.values())}")
+          + f"\n  greeting: {cfg['greeting']}\n  close effect: {effect}, sound: {sound}")
 
 
 if __name__ == "__main__":

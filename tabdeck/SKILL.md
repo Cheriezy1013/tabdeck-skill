@@ -33,6 +33,8 @@ Start with two sentences on what TabDeck does, then ask everything in **one roun
 
 Also use their first name for the greeting if you know it or they mention it ("Hi Cherie, here are your tabs"). Don't ask for it separately; leave it out if you don't know it.
 
+If they only want the tab cleanup, with no news and no lessons, put `"mode": "tabs-only"` in answers.json and skip lessons.json (run the build without `--lessons`). Less is more: offer this when they seem overwhelmed.
+
 If they say "just pick for me", choose Korean pastel, TechCrunch AI, paper plane, and ask only what they're learning, since the lessons can't be guessed.
 
 ## 2. Write the two input files

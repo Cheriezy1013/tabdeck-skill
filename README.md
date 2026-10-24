@@ -4,6 +4,20 @@ A Claude (and Codex) skill that builds **your own** TabDeck: a Chrome new-tab pa
 
 TabDeck turns your Chrome new-tab page into something useful: your open tabs as cards you can close in one click, today's news from sources you pick, and a 3-minute lesson in whatever you're learning. This skill lets Claude build **your own** TabDeck: it asks you a few questions, writes your lessons, and gives you a ready-to-install zip.
 
+## Just want to try it? (no Claude needed)
+
+**[Download TabDeck-just-tabs.zip](https://github.com/Cheriezy1013/tabdeck-skill/raw/main/TabDeck-just-tabs.zip)**: a ready-made TabDeck that does one job, your open tabs as cards you can close in one click. No news, no lessons, no sign-up.
+
+1. Unzip it and keep the `TabDeck` folder somewhere it will stay, e.g. Documents.
+2. Open `chrome://extensions` (Edge: `edge://extensions`), turn on **Developer mode**.
+3. Click **Load unpacked** and choose the `TabDeck` folder. Open a new tab.
+
+Works in Chrome, Edge, Brave, Arc, Opera and Vivaldi on a computer. Use your own computer: work laptops often block **Load unpacked**.
+
+![TabDeck, just the tabs](docs/tabdeck-just-tabs.png)
+
+Want your own version with your colours, your news and a daily 3-minute lesson? Use the skill below.
+
 ## What you need
 
 - A Claude plan that supports skills (Pro, Max, Team or Enterprise), with **code execution** turned on

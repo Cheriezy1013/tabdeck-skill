@@ -1,6 +1,6 @@
 ---
 name: tabdeck
-description: Builds a personalised TabDeck Chrome extension, a new-tab page that turns open tabs into cards and adds daily news and a 3-minute lesson. Asks a few questions first, then delivers a ready-to-install zip.
+description: Builds a personalised TabDeck Chrome extension, a new-tab page that turns open tabs into one-click cards and can add daily news and a 3-minute lesson (or just the tabs). Asks a few questions first, then delivers a ready-to-install zip. Works in Chrome, Edge and other Chromium browsers on a computer.
 ---
 
 # TabDeck: a personal new-tab page

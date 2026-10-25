@@ -1,6 +1,6 @@
 # TabDeck skill
 
-A Claude (and Codex) skill that builds **your own** TabDeck: a Chrome new-tab page made for you.
+A Claude (and Codex) skill that builds **your own** TabDeck: a Chrome new-tab page that turns your open tabs into one-click cards, with daily news and a 3-minute lesson. Answer a few questions, get a ready-to-install zip, or grab the ready-made "just the tabs" version below.
 
 TabDeck turns your Chrome new-tab page into something useful: your open tabs as cards you can close in one click, today's news from sources you pick, and a 3-minute lesson in whatever you're learning. This skill lets Claude build **your own** TabDeck: it asks you a few questions, writes your lessons, and gives you a ready-to-install zip.
 
